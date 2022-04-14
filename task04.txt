@@ -1,0 +1,31 @@
+4.1 Создать таблицу c описанием простейшего списка людей - фамилия, имя, отчество, возраст
+CREATE TABLE `peoples` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `fam` varchar(45) COLLATE utf8_bin DEFAULT NULL,
+  `name` varchar(45) COLLATE utf8_bin DEFAULT NULL,
+  `secname` varchar(45) COLLATE utf8_bin DEFAULT NULL,
+  `age` varchar(45) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_bin
+
+4.2 Заполнить эту таблицу 5-10 записями.
+INSERT INTO `local`.`peoples` (`fam`, `name`, `secname`, `age`) VALUES ('Иванов', 'Иван', 'Иванович', '23');
+INSERT INTO `local`.`peoples` (`fam`, `name`, `secname`, `age`) VALUES ('Петров', 'Пётр', 'Петрович', '25');
+INSERT INTO `local`.`peoples` (`fam`, `name`, `secname`, `age`) VALUES ('Сидоров', 'Сидор', 'Сидорович', '27');
+INSERT INTO `local`.`peoples` (`fam`, `name`, `secname`, `age`) VALUES ('Васильев', 'Василий', 'Васильевич', '29');
+INSERT INTO `local`.`peoples` (`fam`, `name`, `secname`, `age`) VALUES ('Фёдоров', 'Фёдор', 'Фёдорович', '31');
+INSERT INTO `local`.`peoples` (`fam`, `name`, `secname`, `age`) VALUES ('Григорьев', 'Григорий', 'Григорьевич', '33');
+INSERT INTO `local`.`peoples` (`fam`, `name`, `secname`, `age`) VALUES ('Иванова', 'Мария', 'Петровна', '25');
+INSERT INTO `local`.`peoples` (`fam`, `name`, `secname`) VALUES ('Васильева', 'Елизавета', 'Игоревна');
+
+4.3 Выбрать людей с заданной фамилией
+SELECT *
+FROM `local`.`peoples` as pe
+where pe.fam like 'Иванов%';
+
+4.4 Увеличить возраст на 1 для людей с заданной фамилией
+UPDATE `local`.`peoples` as pe SET `age` = pe.age + 1 WHERE pe.fam like 'Иванов%'
+
+4.5 Удалить записи с заданной фамилией
+DELETE FROM `local`.`peoples` as pe
+WHERE pe.fam like 'Иванов%';
